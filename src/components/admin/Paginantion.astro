@@ -1,0 +1,11 @@
+---
+interface Props {
+  page: number
+  totalPages: number
+}
+const { page, totalPages } = Astro.props
+
+const pages = Array.from({ length: totalPages }, (_, i) => i + 1)
+---
+
+<h1>Paginación</h1>
