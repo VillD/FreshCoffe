@@ -48,7 +48,7 @@ export const ProductPriceSchema = z.discriminatedUnion(
   [VariablePriceSchema, FixedPriceSchema]
 )
 
-const ProductSchema = z.object({
+export const ProductSchema = z.object({
 	id: z.number(),
   slug: z.string(),
 	title: z.object({
@@ -70,6 +70,12 @@ export type Product = z.infer<typeof ProductSchema>
 const ProductWithVariablePriceSchema = ProductSchema.extend({
   acf: VariablePriceSchema
 }) 
+
+export const UploadedImageSchema = z.object({
+	id: z.number(),
+	source_url: z.string()
+})
+export type UploadedImage = z.infer<typeof UploadedImageSchema>
 export type ProductWithVariablePrice = z.infer<typeof ProductWithVariablePriceSchema>
 
 /** Order - Client */
@@ -99,3 +105,6 @@ export const OrderContentSchema = z.object({
 })
 
 export type OrderContent = z.infer<typeof OrderContentSchema>
+
+const SizesSchema = VariablePriceSchema.omit({variable_price: true})
+export type Sizes = z.infer<typeof SizesSchema>

@@ -1,11 +1,48 @@
 ---
 interface Props {
-  page: number
-  totalPages: number
+	page: number
+	totalPages: number
 }
 const { page, totalPages } = Astro.props
 
 const pages = Array.from({ length: totalPages }, (_, i) => i + 1)
+const { pathname } = Astro.url
 ---
 
-<h1>Paginación</h1>
+<nav class='flex justify-center py-10 bg-white mt-20'>
+	{
+		page > 1 && (
+			<a
+				href={`${pathname}?page=${page - 1}`}
+				class='mx-1 px-3 py-2 border rounded bg-white text-blue-500 border-blue-500 hover:bg-blue-100'
+			>
+				&laquo;
+			</a>
+		)
+	}
+
+	{
+		pages.map((currencyPage) => (
+			<a
+				href={`${pathname}?page=${currencyPage}`}
+				class={`mx-1 px-3 py-2 border rounded ${
+					currencyPage === page
+						? 'bg-blue-500 text-white border-blue-500'
+						: 'bg-white text-blue-500 border-blue-500 hover:bg-blue-100'
+				}`}
+			>
+				{currencyPage}
+			</a>
+		))
+	}
+	{
+		page < totalPages && (
+			<a
+				href={`${pathname}?page=${page + 1}`}
+				class='mx-1 px-3 py-2 border rounded bg-white text-blue-500 border-blue-500 hover:bg-blue-100'
+			>
+				&raquo;
+			</a>
+		)
+	}
+</nav>

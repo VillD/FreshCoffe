@@ -1,3 +1,4 @@
+import { useModalStore } from '@/stores/modal'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { EllipsisVerticalIcon } from '@heroicons/react/20/solid'
 
@@ -7,9 +8,10 @@ type Props = {
 }
 
 export default function ProductMenu({name, id}: Props) {
-
-  const handleClick = () => {
-
+  const {setProductId, setOpen} = useModalStore()
+  const handleClick = () => { 
+    setProductId(id)
+    setOpen(true)
   }
 
   return (

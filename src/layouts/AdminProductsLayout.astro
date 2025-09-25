@@ -1,16 +1,19 @@
 ---
 import Paginantion from '@/components/admin/Paginantion.astro'
 import AdminLayout from './AdminLayout.astro'
+import CategoriesList from '@/components/admin/CategoriesList.astro'
+import DeleteProductModal from '@/components/admin/products/DeleteProductsModal'
 
 interface Props {
 	title: string
-  page: number
-  totalPages: number
+	page: number
+	totalPages: number
 }
 const { title, page, totalPages } = Astro.props
 ---
 
 <AdminLayout title={title}>
+	<CategoriesList />
 	<slot name='before-products-table' />
 
 	<div class='px-4 sm:px-6 lg:px-8 mt-20 max-w-6xl mx-auto shadow-2xl'>
@@ -52,7 +55,6 @@ const { title, page, totalPages } = Astro.props
 			</div>
 		</div>
 	</div>
-  {
-    totalPages > 1 && <Paginantion page={page} totalPages={totalPages} />
-  }
+	{totalPages > 1 && <Paginantion page={page} totalPages={totalPages} />}
+  <DeleteProductModal client:only="react"/>
 </AdminLayout>

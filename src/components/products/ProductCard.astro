@@ -26,7 +26,7 @@ const { product } = Astro.props
         formats={['avif', 'webp']}'
 	/>
 	<div class='p-5'>
-		<h3 class='text-2xl font-black h-20'>{product.title.rendered}</h3>
+		<h3 class='text-2xl font-black h-20' set:html={product.title.rendered}></h3>
         {product.acf.variable_price 
         ? <PriceWithVariants product={product as ProductWithVariablePrice}/> 
         : (

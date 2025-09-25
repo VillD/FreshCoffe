@@ -6,7 +6,9 @@ import { ProductsSchema } from "@/types";
 const PRODUCTS_PER_PAGE = 10
 const PAGE = Astro.url.searchParams.get('page') ?? "1"
 
-const res = await fetch(`${import.meta.env.API_URL}/freshcoffee_products?per_page=${PRODUCTS_PER_PAGE}&page=${PAGE}`)
+const {category} = Astro.params;
+
+const res = await fetch(`${import.meta.env.API_URL}/freshcoffee_products?per_page=${PRODUCTS_PER_PAGE}&page=${PAGE}&freshcoffee_category_slug=${category}`)
 
 if(!res.ok) return Astro.redirect('/admin/products?page=1')
 
@@ -16,8 +18,5 @@ const products = ProductsSchema.parse(data)
 const totalPages = res.headers.get('X-WP-TotalPages')!
 ---
 <AdminProductsLayout title="Administrar Productos" page={+PAGE} totalPages={+totalPages}>
-    <div slot="before-products-table" class="mt-10">
-        <a href="/admin/products/newProduct" class="bg-amber-400 px-4 py-2 font-bold rounded-md hover:bg-amber-500 transition-colors">Nuevos productos</a>
-    </div>
     <ProductsTable products={products} />
 </AdminProductsLayout>

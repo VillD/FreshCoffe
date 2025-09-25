@@ -6,9 +6,9 @@ export const onRequest = defineMiddleware(async (ctx, next) => {
 	const isAdminPath = pathname.startsWith('/admin')
 	const isOrder = pathname.startsWith('/order')
 	const isOrderActionRoute = pathname.startsWith('/_actions/orders')
+	// const isCreateProduct = pathname.startsWith('/_actions/products')
 
 	const isProtected = isAdminPath || isOrder || isOrderActionRoute
-
 	if (!isProtected) return next()
 	const token = ctx.cookies.get('FRESHCOFFEE_TOKEN')?.value ?? ''
 
