@@ -16,9 +16,9 @@ export default function ProductMenu({name, id}: Props) {
 
   return (
     <Menu as="div" className="relative flex-none">
-      <MenuButton className="-m-2.5 block p-2.5 text-gray-500 hover:text-gray-900">
+      <MenuButton className="-m-2.5 block p-2.5 text-gray-500 hover:text-gray-900 cursor-pointer">
         <span className="sr-only">Open options</span>
-        <EllipsisVerticalIcon aria-hidden="true" className="size-5" />
+        <EllipsisVerticalIcon aria-hidden="true" className="size-5 text-white" />
       </MenuButton>
       <MenuItems
         transition

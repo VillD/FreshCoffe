@@ -18,15 +18,15 @@ export default function AdminSidebar() {
   }
 
   return (
-    <nav className="flex flex-1 flex-col mt-10">
-      <ul role="list" className="space-y-2 ">
+    <nav className="flex flex-1 flex-col">
+      <ul role="list" className="space-y-2">
 
           {
             navigation.map((item) => (
               <li key={item.name}>
                 <a
                   href={item.href}
-                  className={`${isActive(item.href) ? 'bg-gray-200' : '' } hover:bg-gray-200 group flex items-center gap-x-3 rounded-md p-2 text-sm`}
+                  className={`${isActive(item.href) ? 'bg-gray-200' : 'text-white' } hover:bg-gray-200 hover:text-black group flex items-center gap-x-3 rounded-md p-2 text-sm`}
                 >
                   <item.icon className={`${item.bgColor} w-8 h-8 p-2 text-white rounded-lg `} />
                   {item.name}

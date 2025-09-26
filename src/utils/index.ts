@@ -1,9 +1,9 @@
 import type { OrderItem } from "@/types"
 
 export function formatCurrency(amount:number) {
-    return new Intl.NumberFormat('en-US',{
+    return new Intl.NumberFormat('es-PE',{
         style: 'currency',
-        currency:'USD'
+        currency:'PEN'
     }).format(amount)
 }
 

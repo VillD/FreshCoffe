@@ -21,7 +21,7 @@ function OrderCard({order, mutate}:Props) {
     }    
   }
   return (
-    <div className="p-5 shadow-lg space-y-5 border border-gray-200 ">
+    <div className="p-6 shadow-lg space-y-5 border border-gray-200 bg-white">
       <div className='text-sm grid grid-cols-2 justify-between text-gray-600'>
         <h2>ID Orden: <span className='font-black'>{order.id}</span></h2>
         <p className='text-right'>Cliente: {order.name} </p>

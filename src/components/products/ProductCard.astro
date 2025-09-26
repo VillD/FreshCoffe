@@ -17,20 +17,21 @@ const { product } = Astro.props
 // }
 ---
 
-<div class='border border-gray-200'>
+<div class='border-2 border-gray-200'>
 	<Picture
 		src={product.featured_images.full.url}
 		alt={product.title.rendered}
 		width={product.featured_images.full.width}
 		height={product.featured_images.full.height}
-        formats={['avif', 'webp']}'
+    formats={['avif', 'webp']}'
+    class='w-full h-96 object-cover object-center'
 	/>
-	<div class='p-5'>
-		<h3 class='text-2xl font-black h-20' set:html={product.title.rendered}></h3>
+	<div class='p-5 bg-white'>
+		<h3 class='text-xl font-black text-gray-900' set:html={product.title.rendered}></h3>
         {product.acf.variable_price 
         ? <PriceWithVariants product={product as ProductWithVariablePrice}/> 
         : (
-            <p class="mt-5 font-black text-amber-400 text-4xl">{formatCurrency(product.acf.price)}</p>
+            <p class="mt-5 font-black text-amber-400 text-xl">{formatCurrency(product.acf.price)}</p>
             <AddProductButton 
               client:only="react" 
               product={{

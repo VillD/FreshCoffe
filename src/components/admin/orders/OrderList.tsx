@@ -14,7 +14,7 @@ function OrderList({status}:Props) {
     if(isLoading) return 'Cargando...'
     if(data){
         return data.length === 0 ? (
-            <p className='text-center'>No hay ordenes</p>
+            <p className='text-center text-white'>No hay ordenes</p>
         ):(
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
                 {data.map(item =>(

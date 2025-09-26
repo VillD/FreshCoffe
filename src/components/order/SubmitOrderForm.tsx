@@ -52,7 +52,7 @@ export default function SubmitOrderForm() {
 				/>
 			</div>
 			<button
-				className='bg-indigo-600 hover:bg-indigo-700 text-white w-full rounded-xl py-3 mt-5 text-lg font-bold uppercase cursor-pointer'
+				className='bg-green-700 hover:bg-green-800 text-white w-full rounded-xl py-3 mt-5 text-lg font-bold uppercase cursor-pointer'
 				type='submit'
 			>
 				Realizar Pedido

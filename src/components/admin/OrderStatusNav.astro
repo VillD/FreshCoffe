@@ -7,7 +7,7 @@ const current = Astro.url.pathname
   {orderStatusOptions.map( status => (
     <a 
       href={`/admin/orders/${status.value}`} 
-       class={`${currentPage(`/admin/orders/${status.value}`, current) ? 'bg-indigo-600'  : 'bg-indigo-400' }  hover:bg-indigo-500 transition-colors p-2 text-white rounded`}
+       class={`${currentPage(`/admin/orders/${status.value}`, current) ? 'bg-green-800'  : 'bg-green-600' }  hover:bg-green-800 transition-colors p-2 text-white rounded`}
     >{status.label}</a>
   ))}
 </nav>

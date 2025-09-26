@@ -12,7 +12,7 @@ export default function PickUpDisplay() {
   if(isLoading) return 'Cargando...'
   if(data){
     return data.length === 0 ? 
-      <p className='text-center'>No hay ordenes listas</p>
+      <p className='text-center text-white'>No hay ordenes listas</p>
       : (
         <div className='grid grid-cols-1 gap-5 w-full'>
           {data.map(order => (

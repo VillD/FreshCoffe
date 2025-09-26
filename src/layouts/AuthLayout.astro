@@ -10,11 +10,11 @@ interface Props {
 const { title } = Astro.props;
 ---
 <Layout title="Autenticación">
-    <div class="flex min-h-full">
-        <div class="flex flex-1 px-4 sm:px-6 lg:px-20 xl:px-24 py-12 lg:flex-none">
+    <div class="flex min-h-screen bg-gray-900">
+        <div class="flex flex-1 px-4 sm:px-6 lg:px-20 xl:px-24 py-12 lg:flex-none items-center">
             <div class="mx-auto w-full lg:w-96 space-y-5 lg:py-20 flex flex-col items-center">
-                <Logo class="w-48"/>
-                <h2 class="text-4xl mt-5 font-black text-center text-gray-900 tracking-tight">{title}</h2>
+                <Logo class=""/>
+                <h2 class="text-4xl mt-5 font-black text-center text-white tracking-tight">{title}</h2>
                 <slot/>
             </div>
         </div>

@@ -17,7 +17,7 @@ const keys = ['small', 'medium', 'large'] as const
 			const variant = product.acf[key]
 			return (
 				<dl class='flex justify-between items-center text-lg font-black'>
-					<dt class='text-xl uppercase'>{toLowerFirstChar(variant.size)}:</dt>
+					<dt class='text-xl uppercase text-gray-900'>{toLowerFirstChar(variant.size)}:</dt>
 					<dd class='flex items-center gap-4'>
 						<span class='text-3xl text-amber-400'>
 							{formatCurrency(variant.price)}
